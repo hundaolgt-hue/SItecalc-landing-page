@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SiteCalc Pro — 60+ የግንባታ ካልኩሌተሮች በአንድ Excel ፋይል</title>
+<meta name="description" content="ለኢትዮጵያ ሳይት መሐንዲሶች የተሰራ 60+ የግንባታ ካልኩሌተሮች በአንድ Excel ፋይል። ኮንክሪት፣ ብረት፣ ግንብ፣ BOQ — በሰከንዶች።">
+<meta name="theme-color" content="#0B1A33">
+<meta property="og:title" content="SiteCalc Pro — የሳይት ስሌት በግምት ይብቃ">
+<meta property="og:description" content="60+ የግንባታ ካልኩሌተሮች በአንድ Excel ፋይል።">
+<link rel="preconnect" href="https://ye-buna.com">
+<link rel="preload" as="image" href="hero-480.webp" imagesrcset="hero-480.webp 480w, hero-800.webp 800w" imagesizes="(min-width:900px) 520px, 92vw" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F2C14E'/%3E%3Cpath d='M9 22h14M9 16h14M9 10h9' stroke='%230B1A33' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--navy:#0B1A33;--navy2:#13294F;--gold:#F2C14E;--gold2:#E0A92A;--teal:#2A9D8F;
+--bg:#F4F6F9;--card:#fff;--ink:#0F1B2D;--mut:#5B6B80;--line:#DDE3EA;
+--f:"Noto Sans Ethiopic","Kefa","Abyssinica SIL","Nyala",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1626;--card:#152036;--ink:#E8EEF6;--mut:#9DAABB;--line:#24324B}}
+:root[data-theme="dark"]{--bg:#0E1626;--card:#152036;--ink:#E8EEF6;--mut:#9DAABB;--line:#24324B}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--f)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.w{max-width:72rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{line-height:1.25;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:800}
+.sub{color:var(--mut);margin:.5rem 0 0;max-width:40rem}
+section{padding:4.5rem 0 0}
+.head{margin-bottom:2rem}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;background:var(--gold);color:var(--navy);font-weight:800;font-size:1.15rem;text-decoration:none;padding:1rem 1.8rem;border-radius:14px;box-shadow:0 10px 30px -8px rgba(242,193,78,.55),inset 0 -3px 0 rgba(0,0,0,.12);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:20px;height:20px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* hero */
+.hero{background:radial-gradient(90% 70% at 85% 10%,#1E3C74 0,rgba(30,60,116,0) 60%),linear-gradient(180deg,#0B1A33 0,#0E2143 100%);color:#fff;overflow:hidden;padding-bottom:5rem}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.1rem;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:8px;background:var(--gold);display:grid;place-items:center}
+.logo small{display:block;font-weight:400;font-size:.75rem;color:#9FB1CE;line-height:1.1}
+.nav-cta{font-size:.95rem;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.25);padding:.5rem 1rem;border-radius:10px}
+.hero-grid{display:grid;gap:2.5rem;align-items:center;padding-top:1.5rem}
+.pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.88rem;color:#CFE0F7;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:.35rem .85rem;border-radius:99px}
+.pill b{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 4px rgba(74,222,128,.2)}
+.hero h1{font-size:clamp(2.5rem,8vw,4.1rem);font-weight:800;margin:1.1rem 0 1rem;line-height:1.12}
+.hero h1 span{display:block;color:var(--gold)}
+.lede{font-size:1.15rem;color:#C9D6EA;max-width:34rem;margin:0}
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-top:2rem}
+.price{line-height:1.3}
+.price b{font-size:1.5rem;display:block}
+.price span{color:#9FB1CE;font-size:.9rem}
+.ticks{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.95rem;color:#DCE6F5}
+.ticks li{display:flex;align-items:center;gap:.45rem}
+.ticks svg{width:18px;height:18px;flex:none;color:var(--gold)}
+.visual{position:relative;max-width:560px;justify-self:center;width:100%}
+.visual .ph{border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);aspect-ratio:2048/1596;background:#1B3563}
+.visual .ph img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.95);color:#0F1B2D;border-radius:16px;padding:.6rem .95rem .6rem .7rem;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);line-height:1.25;font-size:.82rem;animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.chip strong{font-size:1.45rem;font-variant-numeric:tabular-nums;display:block}
+.chip em{font-style:normal;color:#5B6B80}
+.chip i{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:none}
+.c1{left:-.6rem;bottom:1.4rem;animation-delay:.25s}.c1 i{background:#E8F5F3;color:var(--teal)}
+.c2{right:-.6rem;top:1.2rem;animation-delay:.45s}.c2 i{background:#FFF4D9;color:#B7860B}
+@media (max-width:520px){.chip{font-size:.74rem;padding:.45rem .7rem .45rem .5rem;gap:.5rem}.chip strong{font-size:1.15rem}.chip i{width:30px;height:30px}.c1{left:.5rem;bottom:.8rem}.c2{right:.5rem;top:.8rem}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}.c1{left:-2rem}.c2{right:-1.5rem}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);background:var(--card);border:1px solid var(--line);border-radius:20px;margin-top:-3rem;position:relative;box-shadow:0 20px 50px -30px rgba(11,26,51,.35)}
+.stats div{padding:1.3rem 1.2rem;border-color:var(--line);border-style:solid;border-width:0}
+.stats div:nth-child(odd){border-right-width:1px}.stats div:nth-child(-n+2){border-bottom-width:1px}
+.stats b{display:block;font-size:1.7rem;font-weight:800;line-height:1.2}
+.stats span{color:var(--mut);font-size:.9rem}
+@media (min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}.stats div{border-width:0 1px 0 0!important}.stats div:last-child{border-right-width:0!important}}
+
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:44rem}
+.vid{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#13294F;border:0;padding:0;cursor:pointer;box-shadow:0 25px 50px -25px rgba(11,26,51,.6)}
+.vid img,.vid video{width:100%;height:100%;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))}
+.vid .play span{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;color:var(--navy);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.vid .cap{position:absolute;left:.9rem;right:.9rem;bottom:.8rem;color:#fff;font-weight:700;font-size:.92rem;text-align:left;line-height:1.35}
+
+/* screenshots */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.tabs button{font:600 .92rem var(--f);color:var(--mut);background:transparent;border:1px solid var(--line);padding:.5rem 1rem;border-radius:99px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.win{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -35px rgba(11,26,51,.5)}
+.bar3{display:flex;align-items:center;gap:6px;padding:.7rem 1rem;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--mut)}
+.bar3 i{width:10px;height:10px;border-radius:50%;background:#E3E8EF}
+.bar3 span{margin-left:.6rem}
+.win .pane{max-height:34rem;overflow:auto;background:#fff}
+.win img{width:100%;height:auto}
+.win [hidden]{display:none}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--navy);color:#fff;border-radius:24px;overflow:hidden}
+.calc .in{padding:2rem}
+.calc label{font-weight:700;display:block}
+.calc label small{display:block;font-weight:400;color:#9FB1CE;font-size:.85rem}
+.field{display:flex;align-items:baseline;gap:.5rem;border-bottom:2px solid rgba(255,255,255,.3);margin-top:.8rem}
+.field:focus-within{border-color:var(--gold)}
+.calc input{flex:1;width:100%;min-width:0;font:800 3rem/1.1 var(--f);font-variant-numeric:tabular-nums;color:#fff;background:transparent;border:0;padding:.2rem 0;outline:none}
+.field span{color:#9FB1CE;font-size:1.2rem}
+.out{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.1)}
+.out div{min-width:0;padding:1.2rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.out div:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+.out dt{color:#9FB1CE;font-size:.9rem}
+.out dd{margin:0;font-size:.95rem}
+.out dd b{font-size:1.9rem;font-weight:800;font-variant-numeric:tabular-nums;margin-right:.25rem}
+.out .hi b{color:var(--gold)}
+.calc .note{padding:1rem 2rem 1.5rem;font-size:.85rem;color:#9FB1CE;margin:0}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:stretch}.out{border-top:0;border-left:1px solid rgba(255,255,255,.1)}.calc .note{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1)}}
+
+/* inside */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.25rem 1.3rem;border-top:4px solid var(--c)}
+.cat code{font:700 .78rem/1 var(--f);color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);padding:.3rem .5rem;border-radius:6px}
+.cat h3{font-size:1.08rem;margin:.8rem 0 .3rem}
+.cat p{margin:0;color:var(--mut);font-size:.92rem;line-height:1.55}
+
+/* split */
+.split{display:grid;gap:2rem;align-items:center}
+.split img{border-radius:22px;box-shadow:0 30px 60px -35px rgba(11,26,51,.6);width:100%;height:auto}
+.feat{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1rem}
+.feat li{display:grid;grid-template-columns:44px 1fr;gap:.9rem;align-items:start}
+.feat i{width:44px;height:44px;border-radius:12px;background:#FFF4D9;color:#B7860B;display:grid;place-items:center}
+.feat b{display:block}
+.feat span{color:var(--mut);font-size:.95rem}
+@media (min-width:860px){.split{grid-template-columns:1fr 1fr;gap:3.5rem}}
+
+/* steps */
+.steps{display:grid;gap:1rem;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.3rem 1.3rem 1.3rem 4.4rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:1.2rem;top:1.2rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:800}
+.steps b{display:block}.steps span{color:var(--mut);font-size:.95rem}
+@media (min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+
+/* maker + faq */
+.maker{display:grid;gap:1.2rem;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.6rem}
+.maker .av{width:56px;height:56px;border-radius:14px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:1.3rem}
+.maker p{margin:.3rem 0 0;color:var(--mut)}
+@media (min-width:700px){.maker{grid-template-columns:56px 1fr}}
+.faq{max-width:48rem}
+details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:.6rem 0 0;color:var(--mut)}
+
+/* final */
+.final{margin-top:5rem;position:relative;color:#fff;background:var(--navy);overflow:hidden}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.final .w{position:relative;padding-top:5rem;padding-bottom:5rem;text-align:center}
+.final h2{font-size:clamp(1.9rem,6vw,3rem);max-width:40rem;margin:0 auto}
+.final p{color:#C9D6EA;margin:1rem auto 2rem;max-width:32rem}
+footer{background:var(--navy);color:#8FA2C2;font-size:.85rem;padding:1.5rem 0 7rem;border-top:1px solid rgba(255,255,255,.08)}
+
+
+/* payments */
+.pay{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin-top:1.3rem}
+.pay em{font-style:normal;font-size:.85rem;color:#9FB1CE;margin-right:.2rem;display:flex;align-items:center;gap:.35rem}
+.pay em svg{width:15px;height:15px;color:#4ADE80}
+.pay b{font-size:.8rem;font-weight:700;padding:.3rem .65rem;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;white-space:nowrap}
+.methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}@media (min-width:760px){.methods{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.m{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.9rem;display:flex;gap:.65rem;align-items:center}.m>div{min-width:0}
+.m i{width:38px;height:38px;border-radius:12px;background:#E8F5F3;color:var(--teal);display:grid;place-items:center;flex:none}
+.m b{display:block;font-size:.95rem;line-height:1.25;overflow-wrap:break-word}
+.m span{font-size:.82rem;color:var(--mut)}
+.secure{display:flex;gap:.6rem;align-items:flex-start;margin-top:1rem;color:var(--mut);font-size:.92rem}
+.secure svg{flex:none;width:20px;height:20px;color:var(--teal);margin-top:.15rem}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:5;background:rgba(11,26,51,.96);backdrop-filter:blur(8px);color:#fff;padding:.7rem 1.25rem calc(.7rem + env(safe-area-inset-bottom,0px));display:flex;gap:1rem;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .25s}
+.sticky.on{transform:none}
+.sticky span{font-size:.85rem;line-height:1.3;color:#C9D6EA}.sticky span b{color:#fff;font-size:1.05rem}
+.sticky .btn{padding:.75rem 1.2rem;font-size:1rem;box-shadow:none}
+@media (min-width:900px){.sticky{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<!-- Meta Pixel: SiteCalc Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1089421114009929');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1089421114009929&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+</head>
+<body>
+<header class="hero">
+<div class="w">
+<nav>
+<a class="logo" href="#top" id="top"><i><svg width="18" height="18" viewBox="0 0 32 32" fill="none"><path d="M6 24h20M6 16h20M6 8h12" stroke="#0B1A33" stroke-width="4" stroke-linecap="round"/></svg></i><span>SiteCalc Pro<small>by Rapha Engineering</small></span></a>
+<a class="nav-cta" href="https://ye-buna.com/hundaolgirma?ref=product_detail&amp;product=6ab69740da07f_hundaolgirma" target="_top">አሁኑኑ ያውርዱ</a>
+</nav>
+<div class="hero-grid">
+<div>
+<span class="pill"><b></b>ለኢትዮጵያ ሳይት መሐንዲሶች የተሰራ</span>
+<h1>የሳይት ስሌት <span>በግምት ይብቃ።</span></h1>
+<p class="lede">ኮንክሪት፣ ብረት፣ ግንብ፣ ልስን እና BOQ — 60+ የግንባታ ካልኩሌተሮች በአንድ Excel ፋይል። ቁጥሩን ያስገቡ፤ ውጤቱ በሰከንዶች።</p>
+<div class="buy">
+<a class="btn" id="buy" href="https://ye-buna.com/hundaolgirma?ref=product_detail&amp;product=6ab69740da07f_hundaolgirma" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>አሁኑኑ ያውርዱ</a>
+<div class="price"><b>1,999 ብር</b><span>አንድ ጊዜ ይክፈሉ፣ ለሁሉም ፕሮጀክቶች ይጠቀሙ</span></div>
+</div>
+<div class="pay"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>በChapa ይክፈሉ፦</em><b>telebirr</b><b>CBE Birr</b><b>M-PESA</b><b>Visa / Mastercard</b></div>
+<ul class="ticks">
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>በስልክም በኮምፒውተርም</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>ኢንተርኔት አያስፈልግም</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>አማርኛ እና English</li>
+</ul>
+</div>
+<div class="visual">
+<div class="ph"><img src="hero-480.webp" srcset="hero-480.webp 480w, hero-800.webp 800w" sizes="(min-width:900px) 520px, 92vw" width="800" height="623" alt="የሳይት መሐንዲስ በስልኩ SiteCalc Pro ሲጠቀም" fetchpriority="high" decoding="async"></div>
+<div class="chip c2"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></i><div><strong>53 ዘንግ</strong><em>Ø16 ሚሜ፣ 1,000 ኪ.ግ</em></div></div>
+<div class="chip c1"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 8l8-4 8 4-8 4-8-4zM4 8v8l8 4 8-4V8"/></svg></i><div><strong>81 ከረጢት</strong><em>ሲሚንቶ ለ10 ሜ³ ኮንክሪት</em></div></div>
+</div>
+</div>
+</div>
+</header>
+
+<main>
+<div class="w">
+<div class="stats">
+<div><b>60+</b><span>የግንባታ ካልኩሌተሮች</span></div>
+<div><b>1 ፋይል</b><span>Excel፣ ስልክና ኮምፒውተር</span></div>
+<div><b>BOQ</b><span>ከስሌቶቹ በራሱ ይሰበሰባል</span></div>
+<div><b>1,999 ብር</b><span>አንድ ጊዜ ብቻ</span></div>
+</div>
+
+<section>
+<div class="head"><h2>በ20 ሰከንድ ይመልከቱት</h2><p class="sub">ፋይሉ ምን እንደሚሰራ ከማብራሪያ ይልቅ ይመልከቱ።</p></div>
+<div class="vids">
+<button class="vid" data-src="concrete.mp4" aria-label="የኮንክሪት ስሌት ቪዲዮ ያጫውቱ"><img src="concrete-poster.webp" alt="" loading="lazy" width="405" height="720"><span class="play"><span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span><span class="cap">10 ሜ³ ኮንክሪት፦ 81 ከረጢት ሲሚንቶ፣ በሰከንዶች</span></button>
+<button class="vid" data-src="offcut.mp4" aria-label="የብረት ቁርጥራጭ ቪዲዮ ያጫውቱ"><img src="offcut-poster.webp" alt="" loading="lazy" width="405" height="720"><span class="play"><span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span><span class="cap">ብረት ሳይቆርጡ ብክነቱን ያስሉ</span></button>
+</div>
+</section>
+
+<section>
+<div class="head"><h2>ትክክለኛው ፋይል ይህን ይመስላል</h2><p class="sub">ከSiteCalc Pro ፋይል በቀጥታ የተነሱ ምስሎች።</p></div>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="0">መነሻ ገጽ</button>
+<button role="tab" aria-selected="false" data-t="1">C10 የኮንክሪት ድብልቅ</button>
+<button role="tab" aria-selected="false" data-t="2">C13 የኪዩብ መዝገብ</button>
+</div>
+<div class="win">
+<div class="bar3"><i></i><i></i><i></i><span>SiteCalc_Pro.xlsx</span></div>
+<div class="pane">
+<img data-p="0" src="shot-home.webp" loading="lazy" width="1055" height="1163" alt="የSiteCalc Pro መነሻ ገጽ ከሁሉም ካልኩሌተሮች ጋር">
+<img data-p="1" src="shot-c10.webp" loading="lazy" width="1129" height="1125" alt="C10 የኮንክሪት ድብልቅ መቀየሪያ" hidden>
+<img data-p="2" src="shot-c13.webp" loading="lazy" width="1130" height="1092" alt="C13 የኮንክሪት ኪዩብ መዝገብ" hidden>
+</div>
+</div>
+</section>
+
+<section>
+<div class="head"><h2>አሁኑኑ ይሞክሩት</h2><p class="sub">ከፋይሉ ካልኩሌተሮች አንዱ፦ የኮንክሪት መጠን ያስገቡ።</p></div>
+<div class="calc">
+<div class="in">
+<label for="v">የኮንክሪት መጠን<small>ድብልቅ 1:1.5:3 (C20)፣ 50 ኪ.ግ ከረጢት</small></label>
+<div class="field"><input id="v" type="number" inputmode="decimal" min="0" step="0.5" value="10"><span>ሜ³</span></div>
+</div>
+<dl class="out" aria-live="polite">
+<div class="hi"><dt>ሲሚንቶ</dt><dd><b id="c">81</b>ከረጢት</dd></div>
+<div><dt>ሲሚንቶ በኪሎ</dt><dd><b id="k">4,032</b>ኪ.ግ</dd></div>
+<div><dt>አሸዋ</dt><dd><b id="s">4.2</b>ሜ³</dd></div>
+<div><dt>ጠጠር</dt><dd><b id="g">8.4</b>ሜ³</dd></div>
+</dl>
+<p class="note">ሙሉው ፋይል የራስዎን ሬሾ፣ የውሃ/ሲሚንቶ ሬሾ፣ ብክነትና የመኪና ጉዞዎችን ያሰላል፤ ውጤቱንም ወደ BOQ ይልካል።</p>
+</div>
+</section>
+
+<section>
+<div class="head"><h2>60+ ካልኩሌተሮች፣ በሥራ ዓይነት የተደራጁ</h2><p class="sub">እያንዳንዱ ካልኩሌተር ኮድ አለው፤ ውጤቶቹ ወደ ፕሮጀክት ማጠቃለያና BOQ ይሰበሰባሉ።</p></div>
+<div class="grid">
+<div class="cat" style="--c:#8A6A5A"><code>C01–C07</code><h3>የአፈር ሥራና ቁፋሮ</h3><p>የቁፋሮ መጠን፣ ምርታማነት፣ ማጓጓዣና ወጪ</p></div>
+<div class="cat" style="--c:#5F7A8A"><code>C10–C14</code><h3>ኮንክሪት</h3><p>የድብልቅ መቀየሪያ፣ የኮንክሪት መጠን፣ ሬዲ-ሚክስ፣ የኪዩብ መዝገብ</p></div>
+<div class="cat" style="--c:#3F5663"><code>C20–C26</code><h3>የብረት ዘንግ</h3><p>ከኪሎ ወደ ዘንግ ብዛት፣ የማጠፊያ ሰንጠረዥ፣ የመቁረጫ አመቻች</p></div>
+<div class="cat" style="--c:#8E7F79"><code>C30–C31</code><h3>ቅርጽ ማውጫና ስካፎልዲንግ</h3><p>የቅርጽ ማውጫ ስፋትና የስካፎልዲንግ ግምት</p></div>
+<div class="cat" style="--c:#B5613E"><code>C40–C42</code><h3>የግንብ ሥራ</h3><p>ብሎኬትና ጡብ በግድግዳ፣ የድንጋይ ግንብ</p></div>
+<div class="cat" style="--c:#8C8A2E"><code>C50–C54</code><h3>ልስን፣ ወለልና ሰድር</h3><p>ልስን፣ ስክሪድ፣ ሴራሚክና ቴራዞ</p></div>
+<div class="cat" style="--c:#2A9D8F"><code>C60</code><h3>ቀለምና ሽፋኖች</h3><p>የቀለም ሽፋንና የባልዲ ብዛት</p></div>
+<div class="cat" style="--c:#13294F"><code>BOQ</code><h3>የዋጋ ዝርዝርና BOQ</h3><p>ዋጋዎችን አንዴ ያዘምኑ፤ ማጠቃለያውና BOQ በራሳቸው ይዘጋጃሉ</p></div>
+</div>
+</section>
+
+<section>
+<div class="split">
+<img src="rebar.webp" loading="lazy" width="800" height="642" alt="መሐንዲስ በስልኩ የብረት ካልኩሌተር ሲጠቀም">
+<div>
+<h2>በሳይት ላይ፣ በኪስዎ ውስጥ</h2>
+<p class="sub">ኮንትራክተሩ ቁጥር ሲጠይቅ ቢሮ መመለስ አያስፈልግም።</p>
+<ul class="feat">
+<li><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M12 19h.01M3 3l18 18"/></svg></i><div><b>ኢንተርኔት አያስፈልግም</b><span>Excel ፋይል ስለሆነ ኔትወርክ በሌለበት ሳይት ላይም ይሰራል።</span></div></li>
+<li><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></i><div><b>ከኪሎ ወደ ዘንግ ብዛት</b><span>Ø16፣ 1,000 ኪ.ግ፣ 12 ሜ ዘንግ → 53 ዘንግ።</span></div></li>
+<li><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7h11v9M14 10h4l3 3v3h-7M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></i><div><b>የመኪና ጉዞ ብዛት</b><span>የአይሱዙ ወይም የሲኖ ጉዞ ለአሸዋና ጠጠር።</span></div></li>
+<li><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/></svg></i><div><b>ለህትመት ዝግጁ</b><span>ውጤቱን በA4 አትመው ለኮንትራክተሩ ይስጡ።</span></div></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<div class="head"><h2>በሶስት ደረጃ ይግዙ</h2></div>
+<ol class="steps">
+<li><b>«አሁኑኑ ያውርዱ» ይጫኑ</b><span>ወደ ye-buna የክፍያ ገጽ ይወስድዎታል።</span></li>
+<li><b>1,999 ብር ይክፈሉ</b><span>በChapa፦ telebirr፣ CBE Birr፣ M-PESA ወይም በካርድ። አንድ ጊዜ ብቻ።</span></li>
+<li><b>ፋይሉን ያውርዱ</b><span>በስልክዎም በኮምፒውተርዎም ይክፈቱት።</span></li>
+</ol>
+</section>
+
+<section>
+<div class="head"><h2>በሚመችዎ መንገድ ይክፈሉ</h2><p class="sub">ክፍያው በye-buna የክፍያ ገጽ ላይ በChapa በኩል ይከናወናል።</p></div>
+<div class="methods">
+<div class="m"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></i><div><b>telebirr</b><span>በስልክ ቁጥርዎ</span></div></div>
+<div class="m"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></i><div><b>CBE Birr</b><span>የንግድ ባንክ</span></div></div>
+<div class="m"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></i><div><b>M-PESA</b><span>በስልክ ቁጥርዎ</span></div></div>
+<div class="m"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg></i><div><b>የባንክ ካርድ</b><span>Visa / Mastercard</span></div></div>
+</div>
+<p class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>የካርድዎ ወይም የሂሳብዎ መረጃ በChapa ነው የሚስተናገደው፤ ወደ እኛ አይደርስም።</span></p>
+</section>
+
+<section>
+<div class="maker">
+<div class="av">R</div>
+<div><h3>ያዘጋጀው ማነው?</h3><p>Rapha Engineering and Consulting PLC — በአዲስ አበባ የሚሰራ የአርክቴክቸርና የምህንድስና ድርጅት። SiteCalc Pro በሳይት ላይ በየቀኑ ለሚያስፈልጉ ስሌቶች የተዘጋጀ ነው።</p></div>
+</div>
+</section>
+
+<section class="faq">
+<div class="head" style="margin-bottom:.5rem"><h2>ጥያቄዎች</h2></div>
+<details><summary>ስልኬ ላይ ይሰራል?</summary><p>አዎ። በስልክ የExcel መተግበሪያ እና በኮምፒውተር ይከፈታል፤ ኢንተርኔትም አያስፈልገውም።</p></details>
+<details><summary>የአካባቢዬን ዋጋ ማስገባት እችላለሁ?</summary><p>አዎ። በዋጋ ዝርዝሩ (Price Library) ላይ የአቅራቢዎችዎን ዋጋ አንዴ ያስገቡ፤ ሁሉም ስሌቶችና BOQ በዚያ ዋጋ ይሰራሉ።</p></details>
+<details><summary>የራሴን ድብልቅ ሬሾ መጠቀም እችላለሁ?</summary><p>አዎ። ነባሪውን ሬሾ፣ የውሃ/ሲሚንቶ ሬሾ እና የብክነት መጠን በራስዎ ቁጥር መቀየር ይችላሉ።</p></details>
+<details><summary>በምን መክፈል እችላለሁ?</summary><p>በChapa በኩል፦ telebirr፣ CBE Birr፣ M-PESA ወይም Visa/Mastercard ካርድ።</p></details>
+<details><summary>በየወሩ ክፍያ አለው?</summary><p>የለውም። አንድ ጊዜ 1,999 ብር ከፍለው ለሁሉም ፕሮጀክቶችዎ ይጠቀሙበታል።</p></details>
+</section>
+</div>
+
+<div class="final">
+<img src="site.webp" loading="lazy" alt="" width="640" height="643">
+<div class="w">
+<h2>ቀጣዩን ስሌትዎን በግምት አይጀምሩ።</h2>
+<p>60+ ካልኩሌተሮች፣ አንድ Excel ፋይል፣ አንድ ጊዜ ክፍያ።</p>
+<a class="btn" href="https://ye-buna.com/hundaolgirma?ref=product_detail&amp;product=6ab69740da07f_hundaolgirma" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>አሁኑኑ ያውርዱ</a>
+</div>
+</div>
+</main>
+<footer><div class="w">© 2026 Rapha Engineering and Consulting PLC, Addis Ababa</div></footer>
+<div class="sticky" id="sticky"><span>SiteCalc Pro<br><b>1,999 ብር</b></span><a class="btn" href="https://ye-buna.com/hundaolgirma?ref=product_detail&amp;product=6ab69740da07f_hundaolgirma" target="_top">አሁኑኑ ያውርዱ</a></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},v=$("v"),f=function(n,d){return n.toLocaleString("en-US",{maximumFractionDigits:d})};
+function u(){var x=parseFloat(v.value);if(!(x>=0))x=0;var kg=x*403.2;
+$("c").textContent=f(Math.ceil(kg/50-1e-9),0);$("k").textContent=f(Math.round(kg),0);
+$("s").textContent=f(x*.42,1);$("g").textContent=f(x*.84,1)}
+v.addEventListener("input",u);
+document.querySelectorAll(".vid").forEach(function(b){b.addEventListener("click",function(){
+if(b.querySelector("video"))return;var m=document.createElement("video");m.src=b.dataset.src;m.controls=true;m.playsInline=true;m.autoplay=true;m.setAttribute("playsinline","");
+b.innerHTML="";b.appendChild(m);var p=m.play();if(p&&p.catch)p.catch(function(){})})});
+var tabs=document.querySelectorAll("[data-t]"),panes=document.querySelectorAll("[data-p]");
+tabs.forEach(function(t){t.addEventListener("click",function(){tabs.forEach(function(x){x.setAttribute("aria-selected",x===t)});
+panes.forEach(function(p){p.hidden=p.dataset.p!==t.dataset.t})})});
+var s=$("sticky"),t=$("buy");
+if("IntersectionObserver"in window){new IntersectionObserver(function(e){s.classList.toggle("on",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(t)}else s.classList.add("on");
+})();
+</script>
+<script>
+/* Buy clicks: tell Meta, and carry the ad click ID (fbclid) over to ye-buna so its purchase can be matched to the ad */
+(function(){
+  var q=new URLSearchParams(location.search), fbclid=q.get('fbclid');
+  document.querySelectorAll('a[href*="ye-buna.com/hundaolgirma"]').forEach(function(a){
+    if(fbclid){try{var u=new URL(a.href);u.searchParams.set('fbclid',fbclid);a.href=u.toString();}catch(e){}}
+    a.addEventListener('click',function(){
+      if(window.fbq){fbq('trackCustom','BuyClick');}
+    });
+  });
+})();
+</script>
+</body>
+</html>
